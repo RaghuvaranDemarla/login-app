@@ -1,0 +1,31 @@
+<div class="outter">
+    <div class="container">
+        <div class="img-Container">
+            <img src="./../../assets/bg-02.svg" alt="" class="img-Local">
+        </div>
+        <div class="form-Container">
+            <div class="form-Header">
+                <h1>Sign In</h1>
+            </div>
+            <form action="" class="label-Container" [formGroup]="loginForm">
+                <div class="label">
+                    <label for="email" name="email" class="label-name">Email:</label>
+                    <input type="email" id="email" name="email" formControlName="email" class="label-input">
+                    
+                </div>
+                
+                <div class="label">
+                    <label class="label-name">Password:</label>
+                    <input type="password" name="password" formControlName="password" class="label-input">
+                   
+                </div>
+                <div class="label-Input">
+                    <input type="submit" class="label-Button" value="login" (click)="doLogin()" [disabled]="loginForm.invalid">
+                </div>
+                <div class="label-Text">
+                    <span>Do not have an account yet? <a routerLink="/signup" class="link-Text">Register here</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

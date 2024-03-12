@@ -1,0 +1,57 @@
+<div class="outter">
+    <div class="container">
+        <div class="img-Container">
+            <img src="./../../assets/bg-02.svg" alt="" class="img-Local">
+        </div>
+        <div class="form-Container">
+            <div class="form-Header">
+                <h1>Sign Up</h1>
+            </div>
+            <form action="" class="label-Container" (ngSubmit)="onSignup()" [formGroup]="form" name="sForm">
+                <div class="label">
+                    <label for="email" name="email" class="label-name">Email:</label>
+                    <input type="email" id="email" name="email" formControlName="email" class="label-input">
+                    @if (form.get('email')?.touched && form.get('email')?.errors) {
+                        <div class="invalid-feedback"  class="alert alert-danger">
+                            @if (form.get('email')?.errors) {
+                                <div>*Enter valid Email id</div>
+                            }
+                        </div>
+                    }
+                </div>
+                
+                <div class="label">
+                    <label class="label-name">Password:</label>
+                    <input type="password" name="password" formControlName="password" class="label-input">
+                    @if (form.get('password')?.touched && form.get('password')?.errors) {
+                        <div class="invalid-feedback"  class="alert alert-danger">
+                            @if (form.get('password')?.errors?.['minlength']) {
+                                <div>*Password must be at least 6 characters</div>
+                            }
+                        </div>
+                    }
+                </div>
+                <div class="label">
+                    <label class="label-name">Confirm Password:</label>
+                    <input type="password" id="password2" name="password2" formControlName="password2" class="label-input">
+                    @if (form.get('password2')?.touched && form.get('password2')?.errors) {
+                        <div class="invalid-feedback"  class="alert alert-danger">
+                            @if (f['password2'].errors?.['minlength']) {
+                                <div>*Password must be at least 6 characters</div>
+                            }
+                            @if (f['password2'].errors?.['mismatch']) {
+                                <div>*Password and confirm password not matched</div>
+                            }
+                        </div>
+                    }
+                </div>
+                <div class="label-Input">
+                    <input type="submit" class="label-Button" value="SignUp" [disabled]="!form.valid">
+                </div>
+                <div class="label-Text">
+                    <span>Already have an account <a routerLink="/login" class="link-Text">Login here</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
